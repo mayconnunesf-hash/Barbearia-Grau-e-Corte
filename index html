@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Grau e Corte - Agendamento</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        barberRed: '#DC2626',
+                        barberDark: '#0A0A0A',
+                        barberCard: '#171717',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+    </style>
+</head>
+<body class="bg-barberDark text-neutral-100 min-h-screen flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="border-b border-neutral-800 bg-black/90 sticky top-0 z-50 backdrop-blur">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border-2 border-barberRed overflow-hidden bg-black flex items-center justify-center shadow-md shadow-barberRed/30">
+                    <img src="1000603670.png" alt="Logo Barbearia Grau e Corte" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h1 class="text-sm sm:text-base font-black tracking-wide uppercase text-white">Grau e Corte</h1>
+                    <p class="text-[9px] text-neutral-400 tracking-widest uppercase">Barbearia & Headshop</p>
+                </div>
+            </div>
+            <a href="#agendamento" class="bg-barberRed hover:bg-red-700 text-white font-bold px-3.5 py-2 rounded-lg text-xs uppercase tracking-wider transition shadow-md">
+                Agendar
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-10 w-full">
+
+        <!-- Hero / Banner Section com a Logomarca -->
+        <section class="relative rounded-2xl overflow-hidden border border-neutral-800 bg-gradient-to-b from-neutral-900 to-black p-6 sm:p-10 text-center space-y-6 shadow-2xl">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#DC2626_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            
+            <div class="relative z-10 flex flex-col items-center space-y-4">
+                <!-- Logomarca em Destaque -->
+                <div class="w-48 sm:w-64 max-w-full rounded-2xl p-2 bg-black/60 border-2 border-barberRed/60 shadow-xl shadow-barberRed/20 backdrop-blur">
+                    <img src="1000603670.png" alt="Barbearia Grau e Corte" class="w-full h-auto object-contain rounded-xl">
+                </div>
+
+                <div class="space-y-2">
+                    <span class="bg-barberRed/20 text-barberRed text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-barberRed/30">Estilo & Atitude</span>
+                    <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-tight text-white">O Corte Perfeito na <span class="text-barberRed">Quebrada</span></h2>
+                    <p class="text-xs sm:text-sm text-neutral-400 max-w-lg mx-auto">Profissionais especializados, ambiente irado e o melhor trato no visual. Escolha seu serviço e garanta seu horário.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services List -->
+        <section class="space-y-4">
+            <h3 class="text-xl font-bold uppercase tracking-wider flex items-center gap-2 border-l-4 border-barberRed pl-3">
+                Nossos Serviços & Preços
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Service 1 -->
+                <div class="bg-barberCard border border-neutral-800 rounded-xl p-5 flex flex-col justify-between hover:border-barberRed/50 transition">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-base">Corte / Corte Simples</h4>
+                            <span class="text-barberRed font-black text-lg">R$ 35,00</span>
+                        </div>
+                        <p class="text-xs text-neutral-400 flex items-center gap-1.5 mb-4">
+                            <i class="fa-regular fa-clock text-barberRed"></i> Duração: 1 hora e 30 minutos
+                        </p>
+                    </div>
+                    <button onclick="selectService('Corte / Corte Simples', 35)" class="w-full bg-neutral-800 hover:bg-barberRed text-white text-xs font-bold py-2.5 rounded-lg uppercase tracking-wider transition">
+                        Selecionar para Agendar
+                    </button>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-barberCard border border-neutral-800 rounded-xl p-5 flex flex-col justify-between hover:border-barberRed/50 transition">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-base">Corte Navalhado</h4>
+                            <span class="text-barberRed font-black text-lg">R$ 40,00</span>
+                        </div>
+                        <p class="text-xs text-neutral-400 flex items-center gap-1.5 mb-4">
+                            <i class="fa-regular fa-clock text-barberRed"></i> Duração: 1 hora e 30 minutos
+                        </p>
+                    </div>
+                    <button onclick="selectService('Corte Navalhado', 40)" class="w-full bg-neutral-800 hover:bg-barberRed text-white text-xs font-bold py-2.5 rounded-lg uppercase tracking-wider transition">
+                        Selecionar para Agendar
+                    </button>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-barberCard border border-neutral-800 rounded-xl p-5 flex flex-col justify-between hover:border-barberRed/50 transition">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-base">Corte e Barba</h4>
+                            <span class="text-barberRed font-black text-lg">R$ 60,00</span>
+                        </div>
+                        <p class="text-xs text-neutral-400 flex items-center gap-1.5 mb-4">
+                            <i class="fa-regular fa-clock text-barberRed"></i> Duração: 2 horas
+                        </p>
+                    </div>
+                    <button onclick="selectService('Corte e Barba', 60)" class="w-full bg-neutral-800 hover:bg-barberRed text-white text-xs font-bold py-2.5 rounded-lg uppercase tracking-wider transition">
+                        Selecionar para Agendar
+                    </button>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-barberCard border border-neutral-800 rounded-xl p-5 flex flex-col justify-between hover:border-barberRed/50 transition">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-base">Corte e Penteado</h4>
+                            <span class="text-barberRed font-black text-lg">R$ 60,00</span>
+                        </div>
+                        <p class="text-xs text-neutral-400 flex items-center gap-1.5 mb-4">
+                            <i class="fa-regular fa-clock text-barberRed"></i> Duração: 2 horas
+                        </p>
+                    </div>
+                    <button onclick="selectService('Corte e Penteado', 60)" class="w-full bg-neutral-800 hover:bg-barberRed text-white text-xs font-bold py-2.5 rounded-lg uppercase tracking-wider transition">
+                        Selecionar para Agendar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="agendamento" class="bg-barberCard border border-neutral-800 rounded-2xl p-6 sm:p-8 space-y-6">
+            <h3 class="text-xl font-bold uppercase tracking-wider flex items-center gap-2 border-l-4 border-barberRed pl-3">
+                Faça o seu Agendamento
+            </h3>
+
+            <form id="bookingForm" onsubmit="handleBooking(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider mb-1 text-neutral-400">Seu Nome</label>
+                    <input type="text" id="clientName" placeholder="Digite seu nome completo" required class="w-full bg-black border border-neutral-800 rounded-lg p-3 text-sm focus:outline-none focus:border-barberRed">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider mb-1 text-neutral-400">Serviço Escolhido</label>
+                        <input type="text" id="selectedServiceName" readonly placeholder="Selecione acima um serviço" required class="w-full bg-neutral-900 border border-neutral-800 rounded-lg p-3 text-sm text-barberRed font-bold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider mb-1 text-neutral-400">Valor Total</label>
+                        <input type="text" id="selectedServicePrice" readonly placeholder="R$ 0,00" class="w-full bg-neutral-900 border border-neutral-800 rounded-lg p-3 text-sm font-bold">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider mb-1 text-neutral-400">Data do Atendimento</label>
+                        <input type="date" id="bookingDate" required class="w-full bg-black border border-neutral-800 rounded-lg p-3 text-sm focus:outline-none focus:border-barberRed">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider mb-1 text-neutral-400">Horário Disponível</label>
+                        <select id="bookingTime" required class="w-full bg-black border border-neutral-800 rounded-lg p-3 text-sm focus:outline-none focus:border-barberRed">
+                            <option value="">Selecione uma data primeiro</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:30">10:30</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:30">13:30</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:30">16:30</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:30">19:30</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-barberRed hover:bg-red-700 text-white font-bold py-3.5 rounded-xl uppercase tracking-wider transition shadow-lg shadow-barberRed/20">
+                    Avançar para Pagamento (50% de Sinal)
+                </button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-barberCard border border-neutral-800 rounded-2xl w-full max-w-md p-6 sm:p-8 space-y-6 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-neutral-800 pb-4">
+                <h3 class="text-lg font-black uppercase text-barberRed">Pagamento do Sinal (50%)</h3>
+                <button onclick="closeModal()" class="text-neutral-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+
+            <div class="space-y-4 text-sm">
+                <div class="bg-black/40 p-4 rounded-xl border border-neutral-800 space-y-2">
+                    <p class="flex justify-between"><span class="text-neutral-400">Cliente:</span> <span id="modalClient" class="font-bold"></span></p>
+                    <p class="flex justify-between"><span class="text-neutral-400">Serviço:</span> <span id="modalService" class="font-bold"></span></p>
+                    <p class="flex justify-between"><span class="text-neutral-400">Data e Hora:</span> <span id="modalDateTime" class="font-bold"></span></p>
+                    <hr class="border-neutral-800 my-2">
+                    <p class="flex justify-between text-base"><span class="text-neutral-300 font-bold">Valor Total:</span> <span id="modalTotal" class="font-bold"></span></p>
+                    <p class="flex justify-between text-lg text-barberRed"><span class="font-black">Sinal (50%):</span> <span id="modalDeposit" class="font-black"></span></p>
+                </div>
+
+                <div class="bg-neutral-900 p-4 rounded-xl border border-neutral-800 text-center space-y-2">
+                    <p class="text-xs uppercase text-neutral-400 font-bold">Chave Pix (Telefone):</p>
+                    <p class="text-lg font-black text-white tracking-wider bg-black py-2 rounded border border-neutral-800">11948207983</p>
+                    <p class="text-[11px] text-yellow-500 font-semibold mt-2">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Enviar comprovante para confirmação do agendamento!
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="closeModal()" class="w-1/2 bg-neutral-800 hover:bg-neutral-700 py-3 rounded-xl font-bold text-xs uppercase tracking-wider">Cancelar</button>
+                <button onclick="finishBooking()" class="w-1/2 bg-barberRed hover:bg-red-700 py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-white">Confirmar Agendamento</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-800 bg-black py-8 mt-12 text-center text-xs text-neutral-400 space-y-3">
+        <p class="font-bold text-white uppercase tracking-wider">Barbearia Grau e Corte - Barbearia & Headshop</p>
+        <p><i class="fa-solid fa-location-dot text-barberRed mr-1"></i> Travessa Bernadino de Campos, 17</p>
+        <p><i class="fa-solid fa-phone text-barberRed mr-1"></i> (11) 94820-7983</p>
+        <p class="text-[10px] text-neutral-600 pt-4">© 2026 Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        let selectedPriceValue = 0;
+        let bookingData = {};
+
+        function selectService(name, price) {
+            document.getElementById('selectedServiceName').value = name;
+            document.getElementById('selectedServicePrice').value = `R$ ${price.toFixed(2)}`;
+            selectedPriceValue = price;
+            
+            document.getElementById('agendamento').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleBooking(e) {
+            e.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const service = document.getElementById('selectedServiceName').value;
+            const date = document.getElementById('bookingDate').value;
+            const time = document.getElementById('bookingTime').value;
+
+            if (!service) {
+                alert('Por favor, selecione um serviço acima primeiro!');
+                return;
+            }
+
+            const deposit = selectedPriceValue / 2;
+
+            document.getElementById('modalClient').innerText = name;
+            document.getElementById('modalService').innerText = service;
+            document.getElementById('modalDateTime').innerText = `${date.split('-').reverse().join('/')} às ${time}`;
+            document.getElementById('modalTotal').innerText = `R$ ${selectedPriceValue.toFixed(2)}`;
+            document.getElementById('modalDeposit').innerText = `R$ ${deposit.toFixed(2)}`;
+
+            document.getElementById('paymentModal').classList.remove('hidden');
+            document.getElementById('paymentModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').classList.add('hidden');
+            document.getElementById('paymentModal').classList.remove('flex');
+        }
+
+        function finishBooking() {
+            alert('Agendamento pré-registrado com sucesso! Não se esqueça de realizar o Pix do sinal (50%) para o número 11948207983 e enviar o comprovante para confirmação.');
+            closeModal();
+            document.getElementById('bookingForm').reset();
+            document.getElementById('selectedServiceName').value = '';
+            document.getElementById('selectedServicePrice').value = '';
+        }
+    </script>
+</body>
+</html>
